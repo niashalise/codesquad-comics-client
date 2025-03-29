@@ -12,7 +12,7 @@ function Home() {
         <section class="collection">
             {booksData.map((book) => (
     <div>
-        {book.imageUrl}
+        <img src={`./images/${book.imageUrl}`} alt={book.title}/>
         <br />
         <em>{book.title}</em>
         <br />
@@ -20,6 +20,7 @@ function Home() {
         <br />
         {book.rating} stars
         <br />
+        <a href="#">Details</a>
         <br/>
     </div>
 ))}
