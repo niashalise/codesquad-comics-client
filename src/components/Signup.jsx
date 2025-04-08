@@ -1,34 +1,36 @@
-function Signup() {
+function Signup({ user, setUser }) {
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log("Default prevented.");
+        console.log(e.input.value);
+    };
+
     return (
     <main>
         <h2>SIGN UP</h2>
         <br />
-        <form>
+        <form onSubmit={handleFormSubmit}>
         <div className="form-fields">
             <div>
                 <label htmlFor="firstName">First Name: </label>
-                <input type="text" id="firstName" name="firstName" />
+                <input type="text" id="firstName" name="firstName" required />
                 <br />
             </div>
             <div>
                 <br />
                 <label htmlFor="lastName">Last Name: </label>
-                <input type="text" id="lastName" name="lastName" />
+                <input type="text" id="lastName" name="lastName" required />
                 <br />
             </div>
             <div>
                 <label htmlFor="email">Email address: </label>
-                <input type="email" id="email" name="email" placeholder="Email" />
+                <input type="email" id="email" name="email" placeholder="Email" required />
                 <br />
             </div>
             <div>
                 <br />
                 <label htmlFor="password">Password: </label>
-                <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"/>
+                <input type="password" id="password" name="password" placeholder="Password" required/>
                 <br />
             </div>
             <div>

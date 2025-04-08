@@ -1,7 +1,15 @@
+import { useState, useEffect } from 'react';
 import booksData from '../data/data/books'
 
 
 function Admin() {
+    const [books, setBook] = useState([]);
+
+    useEffect(() => {
+        // use the setter function for books and set it to booksData imported from the books.js file
+        setBook((prevBook) => booksData);
+    }, []);
+
     return (
         <>
         <h2>ADMIN PAGE</h2>
@@ -16,8 +24,8 @@ function Admin() {
                 </tr>
             </thead>
             <tbody>
-                {booksData.map((book) => (
-        <tr>
+                {books.map((book) => (
+        <tr key={book._id}>
             <td>{book.title}</td>
             <td>
             <button type="button" className="edit-btn">EDIT</button>
