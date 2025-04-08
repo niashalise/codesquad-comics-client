@@ -2,7 +2,10 @@ function Signup({ user, setUser }) {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Default prevented.");
-        console.log(e.input.value);
+        console.log(e.target.firstName.value);
+        console.log(e.target.lastName.value);
+        console.log(e.target.email.value);
+        console.log(e.target.password.value);
     };
 
     return (
