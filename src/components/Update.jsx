@@ -36,11 +36,11 @@ function Update() {
                 </div>
                 <div>
                     <br /><label htmlFor="rating">Rating: </label>
-                    <input type="text" id="rating" name="rating" maxlength="3" size="3" placeholder="5"/><br />
+                    <input type="text" id="rating" name="rating" maxLength="3" size="3" placeholder="5"/><br />
                 </div>
                 <div>
                     <br /><label htmlFor="synopsis">Synopsis: </label>
-                    <textarea name="synopsis" id="synopsis" rows="2" cols="23">synopsis value stored in database</textarea><br />
+                    <textarea name="synopsis" id="synopsis" rows="2" cols="23" defaultValue={"synopsis value stored in database"}></textarea><br />
                 </div>
                 <div><button type="submit" className="submit-btn">Submit</button></div>
             </div>

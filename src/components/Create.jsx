@@ -37,11 +37,11 @@ function Create() {
                     </div>
                     <div>
                         <label htmlFor="rating">Rating: </label>
-                        <input type="text" id="rating" name="rating" maxlength="3" size="3" />
+                        <input type="text" id="rating" name="rating" maxLength="3" size="3" />
                     </div>
                     <div>
                         <label htmlFor="synopsis">Synopsis: </label>
-                        <textarea name="synopsis" rows="2" cols="20" placeholder="Synopsis"></textarea>
+                        <textarea name="synopsis" rows="2" cols="20" placeholder="Synopsis" defaultValue={""}></textarea>
                     </div>
                     <div><button type="submit" className="submit-btn">Submit</button></div>
                 </div>
