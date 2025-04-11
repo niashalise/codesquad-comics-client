@@ -1,6 +1,13 @@
+import { useState, useEffect } from "react";
 import booksData from "../data/data/books";
 
 function Home() {
+  const [books, setBook] = useState([]);
+
+  useEffect(() => {
+    // use the setter function for books and set it to booksData imported from the books.js file
+    setBook((prevBook) => booksData);
+  }, []);
   return (
     <main>
       <div className="codesquad-comics">
@@ -18,17 +25,18 @@ function Home() {
         </p>
         <h2>COMPLETE COMIC COLLECTION</h2>
         <section className="collection">
-          {booksData.map((book) => (
+          {books.map((book) => (
             <div key={book._id}>
               <img src={`./images/${book.imageUrl}`} alt={book.title} />
-              <p>
-                <em>{book.title}</em>
-              </p>
-              <p>by {book.author}</p>
-              <p>{book.rating} stars</p>
-              <p>
-                <a href="#">Details</a>
-              </p>
+              <br />
+              <em>{book.title}</em>
+              <br />
+              by {book.author}
+              <br />
+              {book.rating} stars
+              <br />
+              <a href="#">Details</a>
+              <br />
             </div>
           ))}
         </section>
