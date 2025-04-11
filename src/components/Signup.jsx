@@ -41,9 +41,9 @@ function Signup({ user, setUser }) {
                 Submit</button>
             </div>
         </div>
-        </form>
+      </form>
     </main>
-    );
+  );
 }
 
 export default Signup;

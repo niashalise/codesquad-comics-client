@@ -8,7 +8,6 @@ function Home() {
     // use the setter function for books and set it to booksData imported from the books.js file
     setBook((prevBook) => booksData);
   }, []);
-
   return (
     <main>
       <div className="codesquad-comics">

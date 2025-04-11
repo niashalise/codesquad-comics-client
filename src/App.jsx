@@ -14,7 +14,7 @@ function App() {
 
   const [user, setUser] = useState({});
 
-
+function App() {
   return (
     <>
       <Header className="App" state={user} setState={setUser} />
