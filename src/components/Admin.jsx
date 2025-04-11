@@ -3,7 +3,7 @@ import booksData from '../data/data/books'
 
 function Admin() {
     return (
-        <>
+        <main>
         <h2>ADMIN PAGE</h2>
         <button type="button" className="add-comic">ADD NEW COMIC</button><br />
         <br />
@@ -17,7 +17,7 @@ function Admin() {
             </thead>
             <tbody>
                 {booksData.map((book) => (
-        <tr>
+        <tr key={book._id}>
             <td>{book.title}</td>
             <td>
             <button type="button" className="edit-btn">EDIT</button>
@@ -29,7 +29,7 @@ function Admin() {
     ))}
         </tbody>
         </table>
-        </>
+        </main>
     )
 }
 
