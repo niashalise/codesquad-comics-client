@@ -54,13 +54,15 @@ function Create() {
                     </div>
                     <div>
                         <label htmlFor="synopsis">Synopsis: </label>
-                        <textarea name="synopsis" rows="2" cols="20" placeholder="Synopsis" required></textarea>
+                        <textarea name="synopsis" rows="2" cols="20" defaultValue={"Synopsis"} required></textarea>
                     </div>
-                    <div><button type="submit" className="submit-btn">Submit</button></div>
+                    <div>
+                        <button type="submit" className="submit-btn">Submit</button>
+                    </div>
                 </div>
             </form>
         </main>
-    )
+    );
 }
 
 export default Create;
