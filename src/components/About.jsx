@@ -9,14 +9,12 @@ function About() {
         cover or the Details link for the desired graphic novel.</p>
         <br />
         <h3>COLLECTION DETAILS</h3>
-        <p>
             <ul className="with-bullets">
                 <li>total comic books: 12</li>
                 <li>latest additions: 12</li>
                 <li>5-star ratings: 5</li>
                 <li>publishers: 9</li>
             </ul>
-        </p>
         </main>
     )
 }
