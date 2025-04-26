@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import About from './components/About'
 import Admin from './components/Admin'
@@ -13,21 +14,21 @@ import Footer from './shared/Footer'
 function App() {
 
   const [user, setUser] = useState({});
-
-function App() {
   return (
-    <>
-      <Header className="App" state={user} setState={setUser} />
-      <About className="App" />
-      <Admin className="App" />
-      <Create className="App" />
-      <Home className="App" />
-      <Login className="App" state={user} setState={setUser} />
-      <Signup className="App" state={user} setState={setUser} />
-      <Update className="App" />
+    <div>
+      <Header className="App" user={user} setUser={setUser} />
+      <Routes>
+        <Route path="/" element={<Home className="App" />} />
+        <Route path="/about" element={<About className="App" />} />
+        <Route path="/admin" element={<Admin className="App" />} />
+        <Route path="/create" element={<Create className="App" />} />
+        <Route path="/login" element={<Login className="App" user={user} setUser={setUser} />} />
+        <Route path="/signup" element={<Signup className="App" user={user} setUser={setUser} />} />
+        <Route path="/update" element={<Update className="App" />} />
+      </Routes>
       <Footer className="App" />
-    </>
+    </div>
   );
 }
 
-export default App;
+export default App

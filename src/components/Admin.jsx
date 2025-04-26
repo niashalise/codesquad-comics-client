@@ -1,12 +1,26 @@
 import { useState, useEffect } from "react";
-import booksData from "../data/data/books";
+import { Link } from "react-router-dom";
 
 function Admin() {
     const [books, setBook] = useState([]);
 
+    const handleDeleteBook = (id) => {
+        const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log(error));
+    }
+
     useEffect(() => {
-    // use the setter function for books and set it to booksData imported from the books.js file
-    setBook((prevBook) => booksData);
+        const url = "https://course-project-codesquad-comics-server.onrender.com/api/books";
+      // In the useEffect hook, create a callback function that will send a GET method using fetch to "https://course-project-codesquad-comics-server.onrender.com/api/books" URL
+        fetch(url)
+            .then(response => response.json())
+            .then(result => setBook(result.data.books))
+            .catch(error => console.log(error));
+        
     }, []);
 
     return (
@@ -21,8 +35,8 @@ function Admin() {
             <thead>
                 <tr>
                     <th>COMIC TITLE</th>
-                    <th>EDIT</th>
-                    <th>DELETE</th>
+                    <th><Link to="/update">UPDATE</Link></th>
+                    <th><button type="button" onClick={handleDeleteBook(_id)}>Delete</button></th>
                 </tr>
             </thead>
             <tbody>

@@ -5,9 +5,16 @@ function Home() {
   const [books, setBook] = useState([]);
 
   useEffect(() => {
-    // use the setter function for books and set it to booksData imported from the books.js file
-    setBook((prevBook) => booksData);
+    // create a callback function that will send a GET method using fetch to "https://course-project-codesquad-comics-server.onrender.com/api/books Links to an external site." URL
+    const url =
+      "https://course-project-codesquad-comics-server.onrender.com/api/books";
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((result) => setBook(result.data.books))
+      .catch((error) => console.log(error));
   }, []);
+  console.log(books);
   return (
     <main>
       <div className="codesquad-comics">
@@ -25,9 +32,9 @@ function Home() {
         </p>
         <h2>COMPLETE COMIC COLLECTION</h2>
         <section className="collection">
-          {books.map((book) => (
+          {books.length > 0 && books.map((book) => (
             <div key={book._id}>
-              <img src={`./images/${book.imageUrl}`} alt={book.title} />
+              <img src={`./images/${book.image}`} alt={book.title} />
               <br />
               <em>{book.title}</em>
               <br />

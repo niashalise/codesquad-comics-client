@@ -1,19 +1,49 @@
 import { useState, useEffect } from "react";
-import booksData from "../data/data/books"
+import booksData from "../data/data/books";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 function Update() {
-    const id = "2d4f24ca-f395-461f-bc57-6a7ca61d63b9";
+    const navigate = useNavigate();
+    const { bookId } = useParams();
     const [book, setBook] = useState({});
 
     useEffect(() => {
-        const foundBook = booksData.find((book) => book._id === id)
-        setBook(foundBook)
+      const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}";
+        
+      fetch(url)
+        .then(response => response.json)
+        .then(result => {
+          console.log(result)
+          setBook(result);
+        })
+        .catch(error => console.log(error));
     }, [])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("Default prevented.");
-        console.log(e.input.value);
+        const body = {
+          title: e.target.title.value,
+          author: e.target.author.value,
+          publisher: e.target.publisher.value,
+          genre: e.target.genre.value,
+          pages: e.target.pages.value,
+          synopsis: e.target.synopsis.value,
+          rating: e.target.rating.value,
+        };
+        const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}";
+
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify(body)
+        })
+          .then(response => response.json)
+          .then(result => {
+            setBook(result);
+            navigate("/admin");
+          })
+          .catch(error => console.log(error));
+
     };
 
     return (
