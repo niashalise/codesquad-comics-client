@@ -1,6 +1,33 @@
+import { Navigate, useNavigate } from "react-router-dom";
+
 function Login({ user, setUser }) {
+    const navigate = useNavigate();
     const handleFormSubmit = (e) => {
         e.preventDefault();
+
+        const body = {
+            title: e.target.title.value,
+            author: e.target.author.value,
+            publisher: e.target.publisher.value,
+            genre: e.target.genre.value,
+            pages: e.target.pages.value,
+            synopsis: e.target.synopsis.value,
+            rating: e.target.rating.value,
+        };
+
+        const url = "https://course-project-codesquad-comics-server.onrender.com/login/local";
+
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(body)
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                localStorage.setItem("user", JSON.stringify(result));
+                navigate("/admin")
+            })
+            .catch(error => console.log(error))
         console.log("Default prevented.");
         console.log(e.target.email.value);
         console.log(e.target.password.value);
