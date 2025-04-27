@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import styles from '../Create.module.css'
 
 function Create() {
     const navigate = useNavigate();
@@ -38,10 +39,11 @@ function Create() {
 };
 
     return (
-    <main>
+    <main className={styles.main}>
+        <div className={styles.create}>
         <h2>CREATE NEW COMIC</h2>
         <form className="create-form" onSubmit={handleFormSubmit}>
-        <div className="form-fields">
+        <div className={styles.formFields}>
             <div>
                 <label htmlFor="title">Title: </label>
                 <input type="text" id="title" name="title" placeholder="Title" required/>
@@ -82,10 +84,11 @@ function Create() {
                 <textarea name="synopsis" rows="2" cols="20" defaultValue={"Synopsis"} required></textarea>
             </div>
             <div>
-                <button type="submit" className="submit-btn"> Submit</button>
+                <button type="submit" className={styles.submitBtn}> Submit</button>
             </div>
         </div>
         </form>
+        </div>
     </main>
 );
 }

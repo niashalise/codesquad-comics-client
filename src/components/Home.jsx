@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import booksData from "../data/data/books";
+import styles from '../Home.module.css';
+
 
 function Home() {
   const [books, setBook] = useState([]);
@@ -16,8 +17,8 @@ function Home() {
   }, []);
   console.log(books);
   return (
-    <main>
-      <div className="codesquad-comics">
+    <main className={styles.main}>
+      <div className={styles.codesquadComics}>
         <h2>CODESQUAD COMICS</h2>
         <p>
           CodeSquad Comics is a collection of graphic novels read by Your Name.
@@ -31,7 +32,7 @@ function Home() {
           site administrator at this time.
         </p>
         <h2>COMPLETE COMIC COLLECTION</h2>
-        <section className="collection">
+        <section className={styles.collection}>
           {books.length > 0 && books.map((book) => (
             <div key={book._id}>
               <img src={`./images/${book.image}`} alt={book.title} />
@@ -47,7 +48,7 @@ function Home() {
             </div>
           ))}
         </section>
-        <button type="button" className="display">
+        <button type="button" className={styles.display}>
           DISPLAY MORE
         </button>
       </div>

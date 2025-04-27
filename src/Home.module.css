@@ -1,0 +1,39 @@
+
+
+.main {
+    background-image: linear-gradient(var(--white-accent) 0.1%, var(--teal-blue-2), var(--teal-blue));
+    border-bottom: 4px solid var(--yellow-accent);
+    width: 100%;
+}
+
+.codesquadComics {
+    background-color: var(--white-accent);
+    border: 3px solid var(--main-blue);
+    margin: 60px auto;
+    width: 70%;
+    height: 100%;
+    padding: 20px 45px;
+}
+
+h2, h3 {
+    color: var(--main-blue);
+}
+
+.collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 12px;
+}
+
+.collection article {
+    width: 180px;
+}
+
+.collection article img {
+    width: 180px;
+}
+
+.display {
+    margin-bottom: 20px;
+}

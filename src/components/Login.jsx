@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import styles from '../Login.module.css'
 
 function Login({ user, setUser }) {
     const navigate = useNavigate();
@@ -34,10 +35,11 @@ function Login({ user, setUser }) {
     }
 
     return (
-        <main>
+        <main className={styles.main}>
+            <div className={styles.loginForm}>
             <h2>LOGIN</h2><br />
         <form onSubmit={handleFormSubmit}>
-            <div className="form-fields">
+            <div className={styles.formFields}>
                 <div>
                     <label htmlFor="email">Email address: </label>
                     <input type="email" id="email"  name="email" placeholder="Email" required /><br />
@@ -46,9 +48,10 @@ function Login({ user, setUser }) {
                     <br /><label htmlFor="password">Password: </label>
                     <input type="password" id="password" name="password" placeholder="Password" required /><br />
                 </div>
-                <div><button type="submit" className="submit-btn">Submit</button></div>
+                <div><button type="submit" className={styles.submitBtn}>Submit</button></div>
             </div>
         </form>
+        </div>
         </main>
     )
 }
