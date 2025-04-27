@@ -1,0 +1,90 @@
+h2 {
+    text-align: center;
+}
+
+.submitBtn {
+    background-color: var(--yellow-accent);
+    color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+    width: 30%;
+    margin: 15px 200px;
+    padding: 5px;
+}
+
+.formFields div:not(:last-child) {
+    display: flex;
+    margin: 10px auto;
+    width: 400px;
+}
+
+.formFields div:last-child {
+    display: flex;
+    justify-content: center;
+}
+
+.formFields input[type="text"],
+.formFields select,
+.formFields textarea {
+    flex: 2;
+}
+
+.formFields label {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.formFields div input {
+    flex: 2;
+}
+
+.signupForm {
+    background-color: var(--white-accent);
+    border: 3px solid var(--main-blue);
+    margin: 60px auto;
+    width: 70%;
+    height: 100%;
+    padding: 20px 45px;
+}
+
+.main {
+    background-image: linear-gradient(var(--white-accent) 0.1%, var(--teal-blue-2), var(--teal-blue));
+    border-bottom: 4px solid var(--yellow-accent);
+    width: 100%;
+}
+
+/* Admin */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.create,
+.loginForm,
+.update {
+    width: 95%;
+    display: block;
+}
+
+.form-fields input[type="text"],
+.form-fields textarea,
+.form-fields select {
+    display: block;
+
+}
+
+.form-fields label {
+    display: block;
+}
+
+.form-fields div:not(:last-child) {
+    display: block;
+}
+
+.form-fields div:last-child {
+    display: block;
+    margin: auto;
+}
+
+.form-fields .submitBtn {
+    display: block;
+    margin: 15px auto;
+}
+}

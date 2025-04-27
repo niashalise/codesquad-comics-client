@@ -36,4 +36,7 @@ h2, h3 {
 
 .display {
     margin-bottom: 20px;
+    background-color: var(--yellow-accent);
+    color: var(--main-blue);
+    border: 1px solid var(--main-blue);
 }

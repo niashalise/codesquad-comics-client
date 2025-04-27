@@ -2,11 +2,6 @@
     box-sizing: border-box;
     overflow-x: hidden;
     font-family: "Open Sans";
-    width: 100%;
-    max-width: 100vw;
-    margin: 0;
-    overflow-x: hidden; 
-    background-color: var(--main-blue);
 }
 
 :root {
@@ -96,11 +91,13 @@ header {
     flex-direction: column;
 }
 
-/* FOOTER */
-
-.codesquad-comics p img {
-    width: 200px;
+main {
+    background-image: linear-gradient(var(--white-accent) 0.1%, var(--teal-blue-2), var(--teal-blue));
+    border-bottom: 4px solid var(--yellow-accent);
+    width: 100%;
 }
+
+/* FOOTER */
 
 footer {
     display: flex;
@@ -108,16 +105,16 @@ footer {
     flex-flow: row wrap;
 }
 
-a:hover,
-.links p a:hover,
-.follow p a:hover {
+footer a:hover,
+footer .links p a:hover,
+footer .follow p a:hover {
     color: var(--yellow-accent);
     font-weight: bold;
 }
 
-a:active,
-.links p a:active,
-.follow p a:active {
+footer a:active,
+footer .links p a:active,
+footer .follow p a:active {
     font-weight: bold;
     color: var(--main-blue);
     background-color: var(--yellow-accent);
