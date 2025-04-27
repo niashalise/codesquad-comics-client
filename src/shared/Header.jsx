@@ -1,4 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
+import '../App.css'
 
 function Header({ user, setUser }) {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function Header({ user, setUser }) {
     <header>
       <div className="logo">
         <img
-          src="public/images/CodeSquad-Comics-logo.png"
+          src="public/images/CodeSquad-Comics-logo.jpg"
           alt="CodeSquad Comics logo"
         />
       </div>

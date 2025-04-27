@@ -1,22 +1,24 @@
+import "../App.css";
+
 function Footer() {
   return (
-    <>
+    <footer>
       <div className="visit">
         <h3 className="footer-head">VISIT US</h3>
-        <p className="footer-text">CodeSquad Comics</p>
-        <p>123 Dorchester Avenue</p>
-        <p>Boston, MA 02124</p>
+        <p className="footer-text">
+          CodeSquad Comics <br />
+          123 Dorchester Avenue <br />
+          Boston, MA 02124
+        </p>
       </div>
 
       <div className="links">
         <h3 className="footer-head">LINKS</h3>
         <p className="footer-text">
           <a href="#">Home</a>
-        </p>
-        <p>
+          <br />
           <a href="#">About</a>
-        </p>
-        <p>
+          <br />
           <a href="#">Login</a>
         </p>
       </div>
@@ -27,13 +29,11 @@ function Footer() {
           <a href="#">
             &#8203;<i className="fa-brands fa-facebook"></i>
           </a>
-        </p>
-        <p>
+          <br />
           <a href="#">
             &#8203;<i className="fa-brands fa-instagram"></i>
           </a>
-        </p>
-        <p>
+          <br />
           <a href="#">
             &#8203;<i className="fa-brands fa-square-x-twitter"></i>
           </a>
@@ -44,7 +44,7 @@ function Footer() {
         <h3 className="footer-head">A PRODUCT OF</h3>
         <img src="public/images/CodeSquad-logo.jpg" alt="CodeSquad logo" />
       </div>
-    </>
+    </footer>
   );
 }
 

@@ -1,0 +1,101 @@
+.admin {
+  background-color: var(--white-accent);
+  border: 3px solid var(--main-blue);
+  margin: 60px auto;
+  width: 70%;
+  height: 100%;
+  padding: 20px 45px;
+  position: relative;
+}
+
+.main {
+  background-image: linear-gradient(
+    var(--white-accent) 0.1%,
+    var(--teal-blue-2),
+    var(--teal-blue)
+  );
+  border-bottom: 4px solid var(--yellow-accent);
+  width: 100%;
+}
+
+.comicSelection {
+    margin-top: 20px;
+}
+
+.admin h2 {
+    text-align: center;
+}
+
+.addComic {
+    display: block;
+    margin: 0 auto;
+}
+
+th {
+    background-color: var(--gray-borders);
+    padding: 5px 15px; 
+}
+
+.comicSelection, th, td {
+    border: #063c5e 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--gray-borders);
+}
+
+.comicSelection tr button {
+    display: block;
+    margin: auto;
+}
+
+.deleteBtn {
+    background-color: var(--yellow-accent);
+    color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+}
+
+/* Media Queries */
+
+/* Admin */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .comicSelection {
+        display: block;
+        overflow-x: auto;
+    }
+
+.create,
+.login-form,
+.update {
+    width: 95%;
+    display: block;
+}
+
+.formFields input[type="text"],
+.formFields textarea,
+.formFields select {
+    display: block;
+
+}
+
+.formFields label {
+    display: block;
+}
+
+.formFields div:not(:last-child) {
+    display: block;
+}
+
+.formFields div:last-child {
+    display: block;
+    margin: auto;
+}
+
+.formFields .submitBtn {
+    display: block;
+    margin: 15px auto;
+}
+}
