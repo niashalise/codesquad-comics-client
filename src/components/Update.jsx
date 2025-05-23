@@ -46,7 +46,7 @@ function Update() {
             </div>
             <div>
               <br />
-              <label htmlFor="Publisher">Publisher: </label>
+              <label htmlFor="publisher">Publisher: </label>
               <select id="publisher" name="publisher">
                 <option value="">publisher value stored in database</option>
                 <option value="boom">BOOM! Box</option>

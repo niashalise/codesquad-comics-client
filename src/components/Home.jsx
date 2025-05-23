@@ -6,7 +6,7 @@ function Home() {
 
   useEffect(() => {
     // use the setter function for books and set it to booksData imported from the books.js file
-    setBook((prevBook) => booksData);
+    setBook(booksData);
   }, []);
   return (
     <main>

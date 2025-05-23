@@ -54,7 +54,7 @@ function Create() {
                     </div>
                     <div>
                         <label htmlFor="synopsis">Synopsis: </label>
-                        <textarea name="synopsis" rows="2" cols="20" defaultValue={"Synopsis"} required></textarea>
+                        <textarea name="synopsis" id="synopsis" rows="2" cols="20" defaultValue={"Synopsis"} required></textarea>
                     </div>
                     <div>
                         <button type="submit" className="submit-btn">Submit</button>
