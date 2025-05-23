@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import './App.css'
 import About from './components/About'
 import Admin from './components/Admin'
@@ -11,10 +12,8 @@ import Header from './shared/Header'
 import Footer from './shared/Footer'
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem("user") || {});
 
-  const [user, setUser] = useState({});
-
-function App() {
   return (
     <>
       <Header className="App" state={user} setState={setUser} />
