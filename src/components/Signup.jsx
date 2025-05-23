@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "../Signup.module.css";
 
 function Signup({ user, setUser }) {
@@ -7,13 +7,10 @@ function Signup({ user, setUser }) {
     e.preventDefault();
 
     const body = {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      publisher: e.target.publisher.value,
-      genre: e.target.genre.value,
-      pages: e.target.pages.value,
-      synopsis: e.target.synopsis.value,
-      rating: e.target.rating.value,
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
     };
 
     const url =
@@ -26,16 +23,11 @@ function Signup({ user, setUser }) {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        localStorage.setItem("user", JSON.stringify(result));
+        localStorage.setItem("user", JSON.stringify(result.data.user));
+        setUser(result.data.user);
         navigate("/admin");
       })
       .catch((error) => console.log(error));
-
-    console.log("Default prevented.");
-    console.log(e.target.firstName.value);
-    console.log(e.target.lastName.value);
-    console.log(e.target.email.value);
-    console.log(e.target.password.value);
   };
 
   return (
@@ -52,7 +44,7 @@ function Signup({ user, setUser }) {
               <label htmlFor="lastName">Last Name: </label>
               <input type="text" id="lastName" name="lastName" required />
             </div>
-            <div >
+            <div>
               <label htmlFor="email">Email address: </label>
               <input
                 type="email"

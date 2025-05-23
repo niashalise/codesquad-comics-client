@@ -1,5 +1,3 @@
-import '../App.css'
-
 function About() {
   return (
     <main>
@@ -15,7 +13,6 @@ function About() {
           the homepage and clicking the image of the book cover or the Details
           link for the desired graphic novel.
         </p>
-        <br />
         <h3>COLLECTION DETAILS</h3>
         <ul className="with-bullets">
           <li>total comic books: 12</li>
