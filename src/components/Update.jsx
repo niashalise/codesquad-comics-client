@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import booksData from "../data/data/books";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from '../Update.module.css'
 
@@ -10,13 +9,13 @@ function Update() {
     const [book, setBook] = useState({});
 
     useEffect(() => {
-      const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}";
+      const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
         
       fetch(url)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(result => {
           console.log(result)
-          setBook(result);
+          setBook(result.data.book);
         })
         .catch(error => console.log(error));
     }, [])
@@ -38,7 +37,7 @@ function Update() {
           method: "POST",
           body: JSON.stringify(body)
         })
-          .then(response => response.json)
+          .then(response => response.json())
           .then(result => {
             setBook(result);
             navigate("/admin");
@@ -59,28 +58,25 @@ function Update() {
                   type="text"
                   id="title"
                   name="title"
-                  placeholder="title value stored in database"
+                  value={book.title}
                   required
                 />
-                <br />
+                
               </div>
               <div>
-                <br />
                 <label htmlFor="author">Author: </label>
                 <input
                   type="text"
                   id="author"
                   name="author"
-                  placeholder="author value stored in database"
+                  value={book.author}
                   required
                 />
-                <br />
               </div>
               <div>
-                <br />
-                <label htmlFor="Publisher">Publisher: </label>
-                <select id="publisher" name="publisher">
-                  <option value="">publisher value stored in database</option>
+                <label htmlFor="publisher">Publisher: </label>
+                <select id="publisher" name="publisher" value={book.publisher} defaultValue="default">
+                  <option value="default">Select an option</option>
                   <option value="boom">BOOM! Box</option>
                   <option value="dc">DC Comics</option>
                   <option value="harry">Harry N. Abrams</option>
@@ -91,34 +87,28 @@ function Update() {
                   <option value="top-shelf">Top Shelf Productions</option>
                   <option value="viz">VIZ Media LLC</option>
                 </select>
-                <br />
               </div>
               <div>
-                <br />
                 <label htmlFor="genre">Genre: </label>
                 <input
                   type="text"
                   id="genre"
                   name="genre"
-                  placeholder="genre data stored in database"
+                  value={book.genre}
                   required
                 />
-                <br />
               </div>
               <div>
-                <br />
                 <label htmlFor="pages">Number of pages: </label>
                 <input
                   type="text"
                   id="pages"
                   name="pages"
-                  placeholder="255"
+                  value={book.pages}
                   required
                 />
-                <br />
               </div>
               <div>
-                <br />
                 <label htmlFor="rating">Rating: </label>
                 <input
                   type="text"
@@ -126,13 +116,11 @@ function Update() {
                   name="rating"
                   maxLength="3"
                   size="3"
-                  placeholder="5"
+                  value={book.rating}
                   required
                 />
-                <br />
               </div>
               <div>
-                <br />
                 <label htmlFor="synopsis">Synopsis: </label>
                 <textarea
                   name="synopsis"
@@ -140,9 +128,8 @@ function Update() {
                   rows="2"
                   cols="23"
                   required
-                  defaultValue={"synopsis value stored in database"}
-                ></textarea>
-                <br />
+                  value={book.synopsis}
+                />
               </div>
               <div>
                 <button type="submit" className={styles.submitBtn}>
