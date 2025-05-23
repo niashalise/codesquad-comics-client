@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Admin() {
     const [books, setBook] = useState([]);
 
-    const handleDeleteBook = (id) => {
+    const handleDeleteBook = (bookId) => {
         const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`;
 
         fetch(url)
@@ -35,8 +35,8 @@ function Admin() {
             <thead>
                 <tr>
                     <th>COMIC TITLE</th>
-                    <th><Link to="/update">UPDATE</Link></th>
-                    <th><button type="button" onClick={handleDeleteBook(_id)}>Delete</button></th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,10 +44,10 @@ function Admin() {
                     <tr key={book._id}>
                         <td>{book.title}</td>
                         <td>
-                            <button type="button" className="edit-btn">EDIT</button>
+                            <Link to={`/update/${book._id}`}>UPDATE</Link>
                         </td>
                         <td>
-                            <button type="button" className="delete-btn">DELETE</button>
+                            <button type="button" onClick={()=>handleDeleteBook(book._id)}>Delete</button>
                         </td>
                     </tr>
                 ))}

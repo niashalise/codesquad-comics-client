@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+
 import './App.css'
 import About from './components/About'
 import Admin from './components/Admin'
@@ -24,7 +25,7 @@ function App() {
         <Route path="/create" element={<Create className="App" />} />
         <Route path="/login" element={<Login className="App" user={user} setUser={setUser} />} />
         <Route path="/signup" element={<Signup className="App" user={user} setUser={setUser} />} />
-        <Route path="/update" element={<Update className="App" />} />
+        <Route path="/update/:bookId" element={<Update className="App" />} />
       </Routes>
       <Footer className="App" />
     </div>

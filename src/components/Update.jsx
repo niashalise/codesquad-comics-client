@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import booksData from "../data/data/books";
 import { useParams, useNavigate } from "react-router-dom";
 
 
@@ -9,16 +8,16 @@ function Update() {
     const [book, setBook] = useState({});
 
     useEffect(() => {
-      const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}";
+      const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
         
       fetch(url)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(result => {
           console.log(result)
           setBook(result);
         })
         .catch(error => console.log(error));
-    }, [])
+    }, [bookId])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -31,13 +30,13 @@ function Update() {
           synopsis: e.target.synopsis.value,
           rating: e.target.rating.value,
         };
-        const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}";
+        const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}`;
 
         fetch(url, {
           method: "POST",
           body: JSON.stringify(body)
         })
-          .then(response => response.json)
+          .then(response => response.json())
           .then(result => {
             setBook(result);
             navigate("/admin");
@@ -57,7 +56,7 @@ function Update() {
                 type="text"
                 id="title"
                 name="title"
-                placeholder="title value stored in database"
+                value={book.title}
                 required
               />
               <br />
@@ -69,15 +68,15 @@ function Update() {
                 type="text"
                 id="author"
                 name="author"
-                placeholder="author value stored in database"
+                value={book.author}
                 required
               />
               <br />
             </div>
             <div>
               <br />
-              <label htmlFor="Publisher">Publisher: </label>
-              <select id="publisher" name="publisher">
+              <label htmlFor="publisher">Publisher: </label>
+              <select id="publisher" name="publisher" value={book.publisher} >
                 <option value="">publisher value stored in database</option>
                 <option value="boom">BOOM! Box</option>
                 <option value="dc">DC Comics</option>
@@ -98,7 +97,7 @@ function Update() {
                 type="text"
                 id="genre"
                 name="genre"
-                placeholder="genre data stored in database"
+                value={book.genre}
                 required
               />
               <br />
@@ -110,7 +109,7 @@ function Update() {
                 type="text"
                 id="pages"
                 name="pages"
-                placeholder="255"
+                value={book.pages}
                 required
               />
               <br />
@@ -124,7 +123,7 @@ function Update() {
                 name="rating"
                 maxLength="3"
                 size="3"
-                placeholder="5"
+                value={book.rating}
                 required
               />
               <br />
@@ -138,8 +137,8 @@ function Update() {
                 rows="2"
                 cols="23"
                 required
-                defaultValue={"synopsis value stored in database"}
-              ></textarea>
+                value={book.synopsis}
+              />
               <br />
             </div>
             <div>

@@ -4,6 +4,7 @@ function Create() {
     const navigate = useNavigate();
 
     const handleFormSubmit = (e) => {
+        e.preventDefault();
         const body = {
             title: e.target.title.value,
             author: e.target.author.value,
@@ -12,30 +13,29 @@ function Create() {
             pages: e.target.pages.value,
             synopsis: e.target.synopsis.value,
             rating: e.target.rating.value,
-    };
-    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/create";
+        };
+        const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/create";
 
-    fetch(url, {
-        method: "POST",
-        body: JSON.stringify(body)
-    })
-        .then(response => response.json)
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
         .then(result => {
             console.log(result);
             navigate("/admin");
         })
-        .catch(console.log(error));
+        .catch(error => console.log(error))
+    };
 
-    e.preventDefault();
-    console.log("Default prevented.");
-    console.log(e.target.title.value);
-    console.log(e.target.author.value);
-    console.log(e.target.publisher.value);
-    console.log(e.target.genre.value);
-    console.log(e.target.pages.value);
-    console.log(e.target.synopsis.value);
-    console.log(e.target.rating.value);
-};
+    // console.log("Default prevented.");
+    // console.log(e.target.title.value);
+    // console.log(e.target.author.value);
+    // console.log(e.target.publisher.value);
+    // console.log(e.target.genre.value);
+    // console.log(e.target.pages.value);
+    // console.log(e.target.synopsis.value);
+    // console.log(e.target.rating.value);
 
     return (
     <main>

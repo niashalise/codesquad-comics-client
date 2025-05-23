@@ -8,9 +8,8 @@ function Header({ user, setUser }) {
 
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(body),
     })
-      .then((response) => response.json)
+      .then((response) => response.json())
       .then((result) => {
         console.log(result);
         setUser({});
@@ -27,7 +26,7 @@ function Header({ user, setUser }) {
     <header>
       <div className="logo">
         <img
-          src="public/images/CodeSquad-Comics-logo.png"
+          src="public/images/CodeSquad-Comics-logo.jpg"
           alt="CodeSquad Comics logo"
         />
       </div>
