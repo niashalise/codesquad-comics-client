@@ -16,10 +16,8 @@ function Signup({ user, setUser }) {
       rating: e.target.rating.value,
     };
 
-    const url =
-      "https://course-project-codesquad-comics-server.onrender.com/signup";
-
-    fetch(url, {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    fetch(`${API_BASE_URL}/auth/register/`, {
       method: "POST",
       body: JSON.stringify(body),
     })
@@ -52,7 +50,7 @@ function Signup({ user, setUser }) {
               <label htmlFor="lastName">Last Name: </label>
               <input type="text" id="lastName" name="lastName" required />
             </div>
-            <div >
+            <div>
               <label htmlFor="email">Email address: </label>
               <input
                 type="email"

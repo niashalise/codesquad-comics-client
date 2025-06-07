@@ -6,19 +6,17 @@ function Admin() {
   const [books, setBook] = useState([]);
 
   const handleDeleteBook = (id) => {
-    const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`;
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-    fetch(url)
+    fetch(`${API_BASE_URL}/api/books`)
       .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    const url =
-      "https://course-project-codesquad-comics-server.onrender.com/api/books";
-    // In the useEffect hook, create a callback function that will send a GET method using fetch to "https://course-project-codesquad-comics-server.onrender.com/api/books" URL
-    fetch(url)
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    fetch(`${API_BASE_URL}/api/books`)
       .then((response) => response.json())
       .then((result) => setBook(result.data.books))
       .catch((error) => console.log(error));

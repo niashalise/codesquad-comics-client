@@ -6,11 +6,9 @@ function Home() {
   const [books, setBook] = useState([]);
 
   useEffect(() => {
-    // create a callback function that will send a GET method using fetch to "https://course-project-codesquad-comics-server.onrender.com/api/books Links to an external site." URL
-    const url =
-      "https://course-project-codesquad-comics-server.onrender.com/api/books";
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-    fetch(url)
+    fetch(`${API_BASE_URL}/api/books/all`)
       .then((response) => response.json())
       .then((result) => setBook(result.data.books))
       .catch((error) => console.log(error));

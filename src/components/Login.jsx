@@ -16,9 +16,9 @@ function Login({ user, setUser }) {
             rating: e.target.rating.value,
         };
 
-        const url = "https://course-project-codesquad-comics-server.onrender.com/login/local";
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-        fetch(url, {
+        fetch(`${API_BASE_URL}/auth/login/`, {
             method: "POST",
             body: JSON.stringify(body)
         })
