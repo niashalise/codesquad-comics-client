@@ -33,7 +33,7 @@ function Home() {
         <section className={styles.collection}>
           {books.length > 0 && books.map((book) => (
             <div key={book._id}>
-              <img src={`./images/${book.image}`} alt={book.title} />
+              <img src={`./images/${book.imageUrl}`} alt={book.title} />
               <br />
               <em>{book.title}</em>
               <br />
